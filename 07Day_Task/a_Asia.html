@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var req=new XMLHttpRequest();
+        req.open('GET','https://restcountries.com/v3.1/all')
+        req.send()
+        req.onload=function(){
+        var data=JSON.parse(req.response)
+        data.filter((element)=>{
+        if(element.region=='Asia')
+        console.log(`Countries from Asia continent is ${element.name.common}`)
+    })
+}
+    </script>
+</body>
+</html>
